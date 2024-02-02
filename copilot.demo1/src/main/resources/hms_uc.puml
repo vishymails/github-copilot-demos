@@ -1,0 +1,15 @@
+@startuml
+skinparam packageStyle rect
+
+actor User
+
+rectangle HotelManagementSystem {
+    usecase "Make Reservation" as UC1
+    usecase "Display Rooms" as UC2
+    usecase "Display Reservations" as UC3
+
+
+}
+
+
+@enduml

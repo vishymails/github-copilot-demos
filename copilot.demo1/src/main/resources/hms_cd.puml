@@ -1,0 +1,94 @@
+[1:07 PM] Sharad Keer
+@startuml
+class Hotel {
+    -name: string
+    -address: string
+    -phone: string
+    -email: string
+    -website: string
+    -rooms: int
+    -rating: int
+    -price: int
+    -description: string
+    -image: string
+    +getHotelInfo(): string
+    +getHotelRooms(): int
+    +getHotelRating(): int
+    +getHotelPrice(): int
+    +getHotelDescription(): string
+    +getHotelImage(): string
+    +setHotelInfo(): void
+    +setHotelRooms(): void
+    +setHotelRating(): void
+    +setHotelPrice(): void
+    +setHotelDescription(): void
+    +setHotelImage(): void
+}
+class Room {
+    -roomNumber: int
+    -roomType: string
+    -roomPrice: int
+    -roomDescription: string
+    -roomImage: string
+    +getRoomNumber(): int
+    +getRoomType(): string
+    +getRoomPrice(): int
+    +getRoomDescription(): string
+    +getRoomImage(): string
+    +setRoomNumber(): void
+    +setRoomType(): void
+    +setRoomPrice(): void
+    +setRoomDescription(): void
+    +setRoomImage(): void
+}
+class User {
+    -name: string
+    -email: string
+    -phone: string
+    -address: string
+    -password: string
+    +getName(): string
+    +getEmail(): string
+    +getPhone(): string
+    +getAddress(): string
+    +getPassword(): string
+    +setName(): void
+    +setEmail(): void
+    +setPhone(): void
+    +setAddress(): void
+    +setPassword(): void
+}
+Hotel --> Room
+Hotel --> User
+
+@enduml
+[1:07 PM] Sharad Keer
+Use case diagram:-
+[1:07 PM] Sharad Keer
+@startuml
+left to right direction
+actor User
+rectangle HotelManagementSystem {
+  User -> (HotelManagementSystem) : login
+  User -> (HotelManagementSystem) : search
+  User -> (HotelManagementSystem) : book
+  User -> (HotelManagementSystem) : cancel
+  User -> (HotelManagementSystem) : pay
+  usecase "Make reservation" as UC1
+    usecase "Cancel reservation" as UC2
+    usecase "Pay" as UC3
+    usecase "Search" as UC4
+    usecase "Login" as UC5
+   usecase "Display Reservation" as UC6
+    UC1 --> UC2
+    UC1 --> UC3
+    UC1 --> UC4
+    UC1 --> UC5
+    UC1 --> UC6
+    User -- UC1
+    User -- UC2
+    User -- UC3
+   note right of UC1 :User can make reservation\n and cancel reservation\n and pay for reservation\n and search for reservation\n and login to system\n and display reservation
+
+    }
+@enduml
