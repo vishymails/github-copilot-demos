@@ -35,6 +35,13 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- maven for actuator -->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -47,6 +54,25 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- plugin for google jib -->
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.3.1</version>
+				<configuration>
+					<from>
+						<image>openjdk:21-jdk</image>
+					</from>
+					<to>
+						<image>docker.io/vishymails/ecomdemo:1.0</image>
+						<auth>
+							<username>vishymails</username>
+							<password>${env.PASSWORD}</password>
+						</auth>
+					</to>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

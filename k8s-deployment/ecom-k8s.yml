@@ -1,0 +1,20 @@
+apiVersion : v1
+kind: ReplicationController
+metadata:
+  name: ecom-rc
+spec:
+  replicas: 4
+  selector:
+    app: ecom
+  template:
+    metadata:
+      name : ecom
+      labels:
+        app: ecom
+    spec:
+      containers:
+      - name: ecom
+        image: vishymails/ecomdemo:1.0
+        ports:
+        - containerPort: 8080
+
